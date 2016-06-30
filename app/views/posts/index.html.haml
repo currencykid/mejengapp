@@ -1,0 +1,37 @@
+.container.col-md-8.col-md-offset-2
+  - @posts.each do |post|
+    .post.row
+      .col-md-1.col-xs-1.votes-bar
+        -if user_signed_in? && current_user.voted_for?(post) 
+          %span
+            .glyphicon.glyphicon-ok
+        -else 
+          = link_to like_post_path(post), method: :put, class: "btn btn-default btn-sm", id: "votebtn" do
+            .glyphicon.glyphicon-arrow-up
+      .col-md-10.col-xs-10.posttitle
+        %h3
+          = link_to post.mejenga, post_path(post) 
+        %br
+        %span
+          %small
+            Mejenga creada por #{link_to post.user.username, user_path(post.user)} hace #{time_ago_in_words post.created_at} 
+        %br
+        %span
+          %strong.votes-count{"data-id" => post.id}
+            = post.get_upvotes.size 
+        %span
+          .glyphicon.glyphicon-arrow-up
+        %span
+          ||
+        %span
+          = link_to pluralize(post.comments.count, 'commentario'), post_path(post) 
+        %br
+        %span 
+        - if user_signed_in? && current_user == post.user
+          = link_to "Cambiar",edit_post_path(post), class: "btn btn-xs btn-info"
+          = link_to "Borrar",post_path(post), method: :delete, |
+            data: { confirm: "Are you sure you want to delete the post?"},      |
+            class: "btn btn-xs btn-danger"            
+
+  %div{:align => "center"}
+    = will_paginate @posts, previous_label: h("Back"), next_label: h("More"), :page_links => false

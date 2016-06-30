@@ -1,0 +1,43 @@
+.post
+  .container.col-md-8.col-md-offset-2
+    .col-md-2.col-xs-3
+      -if user_signed_in?
+        -if current_user.voted_for?@post 
+          %span 
+            .glyphicon.glyphicon-ok
+        -else 
+          %span 
+            = link_to like_post_path(@post), method: :put, class: "btn btn-default btn-sm", id: "votebtn" do
+              .glyphicon.glyphicon-arrow-up
+          %br
+            %span.upvotethis 
+              %strong
+                vote 
+      -else 
+        = link_to like_post_path(@post), method: :put, class: "btn btn-default btn-sm", id: "votebtn" do
+          .glyphicon.glyphicon-arrow-up
+        %br
+          %span.upvotethis 
+            %strong
+              vote 
+    .col-md-10.col-xs-9
+      %h3
+        = link_to @post.mejenga
+      %br
+      %small
+        creada por  
+        = link_to @post.user.username, user_path(@post.user), class: "linkz" 
+      %br
+      %span
+        = pluralize(@post.cached_votes_total, "voto") 
+        ||
+        = pluralize(@comments.count, "comentario")
+        %br
+      %span 
+      - if user_signed_in? && current_user == @post.user
+        = link_to "Cambiar",edit_post_path(@post), class: "btn btn-xs btn-info"
+        = link_to "Borrar",post_path(@post), method: :delete, |
+          data: { confirm: "Esta seguro que quiere borrar esta mejenga?"},      |
+          class: "btn btn-xs btn-danger"            
+
+    = render partial: "comments/comment" 

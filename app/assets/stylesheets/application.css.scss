@@ -1,0 +1,301 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *= require devise_bootstrap_views
+ *= require_tree .
+ *= require_self
+ */
+
+@import "bootstrap-sprockets";
+@import "bootswatch/cyborg/variables";
+@import "bootstrap";
+@import "bootswatch/cyborg/bootswatch";
+
+@import url(https://fonts.googleapis.com/css?family=Montserrat);
+html, body {
+  width: auto !important;
+  overflow-x: hidden !important;
+  background: #fff;
+  padding-bottom: 50px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+#logo {
+  font-size: 26px;
+  font-weight: 700;
+  text-transform:none;
+  letter-spacing: -1px;
+  padding: 15px 0;
+  padding-left: 10px; 
+  a {
+    color: #fff;
+  }
+
+  a:hover {
+    text-decoration: none; 
+  }
+}
+
+#beta {
+font-size: 15px ;
+display:inline; 
+margin-top: 3px !important; 
+margin-left: -7px !important; 
+}
+.post {
+  margin-bottom: 1px; 
+  h3 {
+
+    margin-top: 10px;
+    margin-bottom: 0px;
+    color: #337ab7;
+    display: inline ; 
+  }
+
+  h4 {
+    margin-top: 3px; 
+    font-size: 19px; 
+  }
+
+  h5 {
+    margin-top: 6px; 
+    font-size: 17px; 
+  }
+} 
+
+h2 {
+  color: #337ab7;
+}
+h3 {
+  margin-top: 0px; 
+  color: #337ab7;
+}
+.source-url{
+  color: #7e7e7e; 
+}
+
+.glyphicon-flash{
+  color: #00e500; 
+}
+.glyphicon-heart-empty{
+  text-align: center;
+  margin-top: 7px; 
+  margin-left: 16px; 
+  font-size: 2.2em; 
+  color: #ff3333;
+  margin-bottom: 0px;
+}
+.glyphicon-chevron-up{
+  margin-left: 8px; 
+  font-size: 2.7em; 
+  color: #00e500;
+  margin-bottom: 0px;
+}
+.glyphicon-menu-up{
+  margin-top: 3px; 
+  margin-left: 8px; 
+  font-size: 2.7em; 
+  color: #00e500;
+  margin-bottom: 0px;
+}
+.glyphicon-plus{
+  margin-top: 3px; 
+  margin-left: 8px; 
+  font-size: 2.7em; 
+  color: #00e500;
+  margin-bottom: 0px;
+}
+.glyphicon-triangle-top{
+  margin-top: 1px; 
+  margin-left: 8px; 
+  font-size: 2.7em; 
+  color: #00e500;
+  margin-bottom: 0px;
+}
+.glyphicon-arrow-up{
+  margin-top: 1px; 
+  margin-left: 8px; 
+  font-size: 2.7em; 
+  color: #00e500;
+  margin-bottom: 0px;
+}
+.glyphicon-ok{
+  margin-top: 1px; 
+  margin-left: 20px; 
+  font-size: 2em; 
+  color: #7F00FF;
+  margin-bottom: 0px;
+}
+
+.glyphicon-heart{
+  margin-left: 8px; 
+  font-size: 2.7em; 
+  color: #ff0303;
+  margin-bottom: 0px;
+}
+.glyphicon-chevron-up{
+  font-size: 2em; 
+}
+.glyphicon-chevron-down {
+  font-size: 2em; 
+}
+
+.upvotecolor {
+
+  color: #00cc00;
+}
+p h2 {
+  display: inline; 
+}
+
+.content {
+  margin-top: 50px; 
+}
+.votez {
+  display: inline-block;
+  overflow: hidden;
+  width: 40px;
+  height: 30px;
+  cursor: pointer;
+  background-position: 0 -25px;
+} 
+
+#main_content {
+  #content {
+    float: none;
+  }
+
+  padding-bottom: 100px;
+  .post {
+    padding: .2em ;
+    .title {
+
+      a {
+        color: #FF4500;
+      }
+    }
+  }
+} 
+#comments {
+  .comment {
+    padding: 1em 0;
+    border-top: 1px solid #E9E9E9;
+    background-color: none;
+    .lead {
+      margin-bottom: 0;
+    }
+  }
+}
+
+#votebtn {
+  border: none; 
+  background-color: #fff;
+}
+
+.votescount{
+  margin-top: 0;
+  text-align:center; 
+  display: table;
+  margin: 0 19px;
+}
+
+.votes-bar {
+  margin-left: 0px;
+  margin-top: 10px; 
+  margin-right: 10px; 
+  padding: 0;
+}
+.posttitle{
+  margin-top: 14px;
+
+.glyphicon-arrow-up{
+  margin-top: 1px; 
+  margin-left: 1px; 
+  font-size: 15px; 
+  color: #00e500;
+  margin-bottom: 0px;
+}
+
+.glyphicon-ok{
+  margin-top: 1px; 
+  margin-left: 8px; 
+  font-size: 2.7em; 
+  color: #00e500;
+  margin-bottom: 0px;
+}
+}
+
+@media (max-width: 767px) {
+  body {
+    padding-right: 0;
+    padding-left: 0;
+  }
+  .navbar-fixed-top,
+  .navbar-fixed-bottom,
+  .navbar-static-top {
+    margin-right: 0;
+    margin-left: 0;
+  }
+}
+
+.upvotethis {
+  margin-left: 18px; 
+}
+
+
+.pagination {
+  background: white;
+  cursor: default;
+/* self-clearing method: */ }
+  .pagination a, .pagination span, .pagination em {
+    padding: 0.2em 0.6em;
+    font-size: 20px;
+    display: block;
+    float: left;
+  margin-right: 1px; }
+  .pagination .disabled {
+    display:none;
+    color: #999999;
+  border: 1px solid #dddddd; }
+  .pagination .current {
+    font-style: normal;
+    font-weight: bold;
+    background: #2e6ab1;
+    color: white;
+  border: 1px solid #2e6ab1; }
+  .pagination a {
+    text-decoration: none;
+    color: #105cb6;
+  border: 1px solid #9aafe5; }
+  .pagination a:hover, .pagination a:focus {
+    color: #000033;
+  border-color: #000033; }
+  .pagination .page_info {
+    background: #2e6ab1;
+    color: white;
+    padding: 0.4em 0.6em;
+    width: 22em;
+    margin-bottom: 0.3em;
+  text-align: center; }
+  .pagination .page_info b {
+    color: #000033;
+    background: #6aa6ed;
+  padding: 0.1em 0.25em; }
+  .pagination:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+  visibility: hidden; }
+  * html .pagination {
+  height: 1%; }
+  *:first-child + html .pagination {
+  overflow: hidden; }
+

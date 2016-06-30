@@ -1,0 +1,19 @@
+= simple_form_for @post, html: { multipart: true} do |f|
+  - if @post.errors.any? 
+    #errors
+      %h2
+      = pluralize(@post.errors.count, "error")
+      prevented this Post from saving
+      %ul
+        - @post.errors.full_messages.each do |msg|
+          %li= msg
+
+
+  .form-group
+    =f.input :mejenga, placeholder: "Dele un nombre a esta mejenga", input_html: {class:"form-control"}
+
+  .form-group
+    =f.input :descripcion, placeholder: "Cuando es? Ponga la fech y la hora", input_html: {class:"form-control"}
+    
+  = f.button :submit, :value => "Armar",  class:"btn btn-primary" 
+

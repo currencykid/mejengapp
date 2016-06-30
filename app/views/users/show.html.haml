@@ -1,0 +1,36 @@
+.container
+  .col-md-10.col-md-offset-1.col-xs-12
+    %h2 #{@user.username} 
+    %h3
+      .glyphicon.glyphicon-flash 
+      = @user.points
+    %hr
+    %h4 Mejengas armadas: 
+
+    - @user.posts.each do |post|
+      .row
+        .col-md-10.col-md-offset-1.col-xs-12
+          .well.well-xs
+            - if post.user
+              = link_to post.mejenga 
+              %br
+            .post-body{:class => "medlight"} 
+              %p
+                %small
+                  - if post.user
+                    = link_to post.user.username, user_path(post.user), class: "linkz" 
+                    creada
+                    = time_ago_in_words(post.created_at)
+                    ago
+                    %br
+                    %span 
+                      = post.get_upvotes.size
+                      = "voto".pluralize(post.cached_votes_total) 
+                      ||
+                      = link_to pluralize(post.comments.count, 'comentario'), post_path(post) 
+            .post-actions
+              - if user_signed_in? && current_user == post.user
+                = link_to "Cambiar",edit_post_path(post), class: "btn btn-xs btn-info"
+                = link_to "Borrar",post_path(post), method: :delete, |
+                  data: { confirm: "Are you sure you want to delete the post?"},      |
+                  class: "btn btn-xs btn-danger"                                         |

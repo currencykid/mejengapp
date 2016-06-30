@@ -1,0 +1,17 @@
+<div class= "col-md-8 col-md-offset-2" > 
+<%= render 'comments/form' %> 
+
+<% @comments.each do |comment| %> 
+  <p><b><%= link_to comment.user.username, user_path(comment.user)  %></b> <small> <%= time_ago_in_words(comment.created_at) %> ago</small> </p>
+   <%= comment.content %> 
+   <% if current_user == comment.user %> 
+   <small>
+  <%= link_to "Cambiar", edit_post_comment_path(comment.post, comment) %> 
+  <%= link_to "Borrar", [comment.post, comment],  method: :delete %> 
+</small> 
+<% end %> 
+<br> 
+<br> 
+<% end %> 
+
+  </div>
