@@ -39,5 +39,8 @@
         = link_to "Borrar",post_path(@post), method: :delete, |
           data: { confirm: "Esta seguro que quiere borrar esta mejenga?"},      |
           class: "btn btn-xs btn-danger"            
+      %br
+        %h3
+          = @post.descripcion
 
     = render partial: "comments/comment" 
